@@ -21,3 +21,6 @@ Route::get('/about','TestController@about');
 
 Route::get('/student','TestController@student');
 
+Route::get('post','PostController@post');
+
+Route::get('/addCategory','categoryController@addCategory')->name('AddCategory');
