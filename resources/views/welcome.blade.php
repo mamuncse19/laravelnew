@@ -42,7 +42,7 @@
             <a class="nav-link" href="{{ URL::to('about') }}">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">White Post</a>
+            <a class="nav-link" href="{{ url('post') }}">Write Post</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ route('contact') }}">Contact</a>

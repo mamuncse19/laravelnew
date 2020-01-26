@@ -20,3 +20,4 @@ Route::get('/contact','TestController@contact')->name('contact');
 Route::get('/about','TestController@about');
 
 Route::get('/student','TestController@student');
+
