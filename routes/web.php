@@ -12,13 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.index');
 });
 
-Route::get('/home', function () {
-    echo "this home page";
-});
+Route::get('/contact','TestController@contact')->name('contact');
 
-Route::get('/contact', function () {
-    echo "this contact page";
-})->middleware('age');
+Route::get('/about','TestController@about');
+
+Route::get('/student','TestController@student');
