@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/home', function () {
+    echo "this home page";
+});
+
+Route::get('/contact', function () {
+    echo "this contact page";
+})->middleware('age');
