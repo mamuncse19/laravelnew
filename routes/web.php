@@ -23,4 +23,7 @@ Route::get('/student','TestController@student');
 
 Route::get('post','PostController@post');
 
+//category insert====
+
 Route::get('/addCategory','categoryController@addCategory')->name('AddCategory');
+Route::post('/CategoryInsert','categoryController@categoryInsert')->name('categoryInsert');

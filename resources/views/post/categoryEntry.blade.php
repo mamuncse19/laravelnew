@@ -8,7 +8,8 @@
         	<a class="btn btn-info" href="">All category</a>
         <hr>
         
-        <form name="sentMessage" id="contactForm" novalidate>
+        <form action ="{{ route('categoryInsert') }}" method="post">
+        	@csrf
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Category Name</label>
