@@ -12,11 +12,16 @@ class categoryController extends Controller
     	return view('post.categoryEntry');
     }
 
-    public function categoryInsert(Request $req)
+    public function categoryInsert(Request $request)
     {
+    	$validatedData = $request->validate([
+        'name' => 'required|unique:categories|max:25|min:2',
+        'slug' => 'required|unique:categories|max:25|min:2',
+    	]);
+
     	$data = array();
-    	$data['name'] = $req->name;
-    	$data['slug'] = $req->slug;
+    	$data['name'] = $request->name;
+    	$data['slug'] = $request->slug;
     	$query = DB::table('categories')->insert($data);
 
     	if($query){
@@ -34,4 +39,6 @@ class categoryController extends Controller
     	}
 
     }
+
+    
 }
