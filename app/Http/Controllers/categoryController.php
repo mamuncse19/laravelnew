@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 
+
 class categoryController extends Controller
 {
     public function addCategory()
@@ -38,6 +39,13 @@ class categoryController extends Controller
     		return Redirect()->back()->with($sms);
     	}
 
+    }
+
+    public function allCatRead()
+    {
+        $allCategory = DB::table('categories')->get();
+
+        return view('post.allCategory',compact('allCategory'));
     }
 
     

@@ -28,3 +28,7 @@ Route::get('post','PostController@post');
 Route::get('/addCategory','categoryController@addCategory')->name('AddCategory');
 Route::post('/categoryInsert','categoryController@categoryInsert')->name('categoryInsert');
 
+//category retrieve
+
+Route::get('/allCategory','categoryController@allCatRead');
+

@@ -5,7 +5,7 @@
       <div class="col-lg-8 col-md-10 mx-auto">
        
         	<a class="btn btn-danger" href="{{ route('AddCategory') }}">Add category</a>
-        	<a class="btn btn-info" href="">All category</a>
+        	<a class="btn btn-info" href="{{ url('/allCategory') }}">All category</a>
         <hr>
 
 	        @if ($errors->any())
