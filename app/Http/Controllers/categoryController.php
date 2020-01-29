@@ -30,7 +30,7 @@ class categoryController extends Controller
     			'message' => 'Category inserted successfully.',
     			'alert-type' => 'success'
     		);
-    		return Redirect()->back()->with($sms);
+    		return Redirect('allCategory')->with($sms);
     	}else{
     		$sms = array(
     			'message' => 'Something went wrong.',
@@ -46,6 +46,31 @@ class categoryController extends Controller
         $allCategory = DB::table('categories')->get();
 
         return view('post.allCategory',compact('allCategory'));
+    }
+
+    public function viewCategory($x)
+    {
+        $cat = DB::table('categories')->where('id',$x)->first();
+        return view('post.viewCategory')->with('cat',$cat);
+    }
+
+    public function deleteCategory($id)
+    {
+        $delcat = DB::table('categories')->where('id',$id)->delete();
+        if($delcat){
+            $sms = array(
+                'message' => 'Deleted Sucessfully',
+                'alert-type' => 'success'
+            );
+            return Redirect('allCategory')->with($sms);
+        }
+    }
+
+    public function editCategory($a)
+    {
+        $cat = DB::table('categories')->where('id',$a)->first();
+        return redirect('')
+
     }
 
     

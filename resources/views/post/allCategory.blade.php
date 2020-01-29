@@ -23,9 +23,9 @@
             <td>{{ $row->name }}</td>
             <td>{{ $row->slug }}</td>
             <td>
-              <a href="" class="btn btn-success">View</a>
-              <a href="" class="btn btn-info">Edit</a>
-              <a href="" class="btn btn-danger">Delete</a>
+              <a href="{{ URL::to('viewCategory/'.$row->id) }}" class="btn btn-success">View</a>
+              <a href="{{ url('editCategory/'.$row->id) }}" class="btn btn-info">Edit</a>
+              <a href="{{ url('/deleteCategory/'.$row->id) }}" id="deleteId" class="btn btn-danger">Delete</a>
             </td>
           </tr>
           

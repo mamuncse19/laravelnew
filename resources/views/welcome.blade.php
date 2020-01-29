@@ -18,6 +18,7 @@
   <link href="{{ asset('FrondEnd') }}/https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel='stylesheet' type='text/css'>
   <link href="{{ asset('FrondEnd') }}/https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.css">
 
   <!-- Custom styles for this template -->
   <link href="{{ asset('FrondEnd') }}/css/clean-blog.min.css" rel="stylesheet">
@@ -116,6 +117,7 @@
   <script src="{{ asset('FrondEnd') }}/vendor/jquery/jquery.min.js"></script>
   <script src="{{ asset('FrondEnd') }}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.js"></script>
   <!-- Custom scripts for this template -->
   <script src="{{ asset('FrondEnd') }}/js/clean-blog.min.js"></script>
 <script>
@@ -136,6 +138,55 @@
         break;
     }
     @endif
+
+    $(document).on("click", "#deleteId", function(e){
+      e.preventDefault();
+      var link = $(this).attr('href');
+//         Swal.fire({
+//   title: 'Are you sure?',
+//   text: "You won't be able to revert this!",
+//   icon: 'warning',
+//   buttons: true,
+//   dangerMode: true,
+// }).then((willDelete) => {
+//   if (willDelete) {
+//     window.location.href=link;
+//   }else{
+//     Swal.fire('Save Data');
+//   }
+// });
+const swalWithBootstrapButtons = Swal.mixin({
+  customClass: {
+    confirmButton: 'btn btn-success',
+    cancelButton: 'btn btn-danger'
+  },
+  buttonsStyling: false
+})
+
+swalWithBootstrapButtons.fire({
+  title: 'Are you sure?',
+  text: "You won't be able to revert this!",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonText: 'Yes, delete it!',
+  cancelButtonText: 'No, cancel!',
+  reverseButtons: true
+}).then((result) => {
+  if (result.value) {
+    window.location.href=link;
+  } else if (
+    /* Read more about handling dismissals below */
+    result.dismiss === Swal.DismissReason.cancel
+  ) {
+    swalWithBootstrapButtons.fire(
+      'Cancelled',
+      'Your imaginary file is safe :)',
+      'error'
+    )
+  }
+})
+    });
+  
 </script>
 </body>
 

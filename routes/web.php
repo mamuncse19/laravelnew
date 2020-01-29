@@ -31,4 +31,12 @@ Route::post('/categoryInsert','categoryController@categoryInsert')->name('catego
 //category retrieve
 
 Route::get('/allCategory','categoryController@allCatRead');
+Route::get('/viewCategory/{id}','categoryController@viewCategory');
+
+//category delete
+
+Route::get('deleteCategory/{id}','categoryController@deleteCategory');
+
+//category edit
+Route::get('editCategory/{id}','categoryController@editCategory');
 
