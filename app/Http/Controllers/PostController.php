@@ -35,7 +35,7 @@ class PostController extends Controller
     		$path = 'postImage/';
     		$url = $path.$name;
     		$success = $image->move($path,$name);
-    		$data['image'] = $url;
+    		$data['image'] = $name;
 
     		DB::table('posts')->insert($data);
     		$sms = array(
@@ -47,5 +47,16 @@ class PostController extends Controller
 
     	}
     
+    }
+
+    public function allPost()
+    {
+    	//$post = DB::table('posts')->get();
+
+    	$post = DB::table('posts')
+    	->leftJoin('categories','posts.category_id','=','categories.id')
+    	->select('posts.*','categories.name')
+    	->get();
+    	return view('post.allPost')->with('post',$post);
     }
 }
