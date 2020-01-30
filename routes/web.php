@@ -45,3 +45,7 @@ Route::post('updateCategory/{id}','categoryController@updateCategory');
 
 Route::post('/postInsert','PostController@postInsert')->name('postInsert');
 
+//post retrieve
+
+Route::get('allPost','PostController@allPost')->name('allPost');
+

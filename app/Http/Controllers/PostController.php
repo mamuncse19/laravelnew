@@ -21,6 +21,31 @@ class PostController extends Controller
         'catImage' => 'required|mimes:jpeg,png,jpg,bmp,PNG,JPG',
         'details' => 'required|max:500',
     ]);
+
+    	$data = array();
+    	$data['title'] = $request->title;
+    	$data['category_id'] = $request->catId;
+    	$data['details'] = $request->details;
+    	$image = $request->file('catImage');
+
+    	if($image){
+    		$addstring = time();
+    		$originName = $image->getClientOriginalExtension();
+    		$name = $addstring.'.'.$originName;
+    		$path = 'postImage/';
+    		$url = $path.$name;
+    		$success = $image->move($path,$name);
+    		$data['image'] = $url;
+
+    		DB::table('posts')->insert($data);
+    		$sms = array(
+    			'message' => 'Successfully post inserted',
+    			'alert-type' => 'success'
+    		);
+
+    		return Redirect()->back()->with($sms);
+
+    	}
     
     }
 }

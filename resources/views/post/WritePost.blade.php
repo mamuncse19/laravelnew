@@ -6,7 +6,7 @@
        
         	<a class="btn btn-danger" href="{{ route('AddCategory') }}">Add category</a>
         	<a class="btn btn-info" href="{{ url('/allCategory') }}">All category</a>
-          <a class="btn btn-info" href="">All Post</a>
+          <a class="btn btn-info" href="{{ {{ route('allPost') }} }}">All Post</a>
         <hr>
 
         @if ($errors->any())
