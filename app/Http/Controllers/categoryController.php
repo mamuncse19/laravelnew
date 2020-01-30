@@ -21,23 +21,23 @@ class categoryController extends Controller
     	]);
 
     	$data = array();
-    	$data['name'] = $request->name;
-    	$data['slug'] = $request->slug;
-    	$query = DB::table('categories')->insert($data);
+        $data['name'] = $request->name;
+        $data['slug'] = $request->slug;
+        $query = DB::table('categories')->insert($data);
 
-    	if($query){
-    		$sms = array(
-    			'message' => 'Category inserted successfully.',
-    			'alert-type' => 'success'
-    		);
-    		return Redirect('allCategory')->with($sms);
-    	}else{
-    		$sms = array(
-    			'message' => 'Something went wrong.',
-    			'alert-type' => 'error'
-    		);
-    		return Redirect()->back()->with($sms);
-    	}
+        if($query){
+            $sms = array(
+                'message' => 'Category inserted successfully.',
+                'alert-type' => 'success'
+            );
+            return Redirect('allCategory')->with($sms);
+        }else{
+            $sms = array(
+                'message' => 'Something went wrong.',
+                'alert-type' => 'error'
+            );
+            return Redirect()->back()->with($sms);
+        }
 
     }
 
@@ -69,8 +69,34 @@ class categoryController extends Controller
     public function editCategory($a)
     {
         $cat = DB::table('categories')->where('id',$a)->first();
-        return redirect('')
+        return view('post.editCategory')->with('cat',$cat);
 
+    }
+
+    public function updateCategory(Request $request,$id)
+    {
+        $validatedData = $request->validate([
+        'name' => 'required|max:25|min:2',
+        'slug' => 'required|max:25|min:2',
+        ]);
+
+        $data = array(
+            'name' =>$request->name ,
+            'slug' =>$request->slug );
+        $cat = DB::table('categories')->where('id',$id)->update($data);
+        if($cat){
+            $sms = array(
+                'message' => 'Category updated successfully.',
+                'alert-type' => 'success'
+            );
+            return Redirect('allCategory')->with($sms);
+        }else{
+            $sms = array(
+                'message' => 'Nothing Updated.',
+                'alert-type' => 'error'
+            );
+            return Redirect('allCategory')->with($sms);
+        }
     }
 
     

@@ -39,4 +39,9 @@ Route::get('deleteCategory/{id}','categoryController@deleteCategory');
 
 //category edit
 Route::get('editCategory/{id}','categoryController@editCategory');
+Route::post('updateCategory/{id}','categoryController@updateCategory');
+
+//post imsert======
+
+Route::post('/postInsert','PostController@postInsert')->name('postInsert');
 

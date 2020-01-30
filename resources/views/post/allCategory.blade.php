@@ -8,7 +8,7 @@
         	<a class="btn btn-info" href="{{ url('/allCategory') }}">All category</a>
         <hr>
 
-        <table class="table table-stript">
+        <table class="table table-stript" style="text-align: center;">
           <tr>
             <th>S.L</th>
             <th>Category Nmae</th>

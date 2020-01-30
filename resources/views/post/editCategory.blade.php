@@ -9,7 +9,7 @@
         <hr>
 
 	        @if ($errors->any())
-	 
+	        
 		    <div class="alert alert-danger">
 		        <ul>
 		            @foreach ($errors->all() as $error)
@@ -19,19 +19,19 @@
 		    </div>
 		@endif
         
-        <form action ="{{ route('categoryInsert') }}" method="post">
+        <form action ="{{ url('updateCategory/'.$cat->id) }}" method="post">
         	@csrf
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Category Name</label>
-              <input type="text" class="form-control" placeholder="Category Name" name="name">
+              <input type="text" class="form-control" value="{{ $cat->name }}" name="name">
             </div>
           </div>
 
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Slug Name</label>
-              <input type="text" class="form-control" placeholder="Slug Name" name="slug">
+              <input type="text" class="form-control" value="{{ $cat->slug }}" name="slug">
             </div>
           </div>
          
@@ -39,7 +39,7 @@
           <br>
           
           <div class="form-group">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Update</button>
           </div>
         </form>
       </div>
