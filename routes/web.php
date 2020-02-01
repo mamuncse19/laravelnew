@@ -48,4 +48,10 @@ Route::post('/postInsert','PostController@postInsert')->name('postInsert');
 //post retrieve
 
 Route::get('allPost','PostController@allPost')->name('allPost');
+Route::get('/viewPost/{id}','PostController@viewPost');
+
+//post edit and update
+
+Route::get('/editPost/{id}','PostController@editPost');
+Route::post('/postUpdate/{id}','PostController@updatePost');
 

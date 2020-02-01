@@ -23,10 +23,10 @@
             <td>{{$row->id}}</td>
             <td>{{ $row->name }}</td>
             <td>{{ $row->title }}</td>
-            <td><img src="postImage/{{ $row->image }}" style="width: 50px; height: 50px;"></td>
+            <td><img src="{{ URL::to($row->image) }}" style="width: 50px; height: 50px;"></td>
             <td>
-              <a href="{{ URL::to('viewCategory/'.$row->id) }}" class="btn btn-success">View</a>
-              <a href="{{ url('editCategory/'.$row->id) }}" class="btn btn-info">Edit</a>
+              <a href="{{ URL::to('viewPost/'.$row->id) }}" class="btn btn-success">View</a>
+              <a href="{{ url('editPost/'.$row->id) }}" class="btn btn-info">Edit</a>
               <a href="{{ url('/deleteCategory/'.$row->id) }}" id="deleteId" class="btn btn-danger">Delete</a>
             </td>
           </tr>
@@ -34,6 +34,8 @@
           @endforeach
           
         </table>
+
+        
         
       </div>
     </div>
