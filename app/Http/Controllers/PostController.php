@@ -124,4 +124,24 @@ class PostController extends Controller
     		return Redirect('allPost')->with($sms);
     	}
     }
+
+    public function deletePost($id)
+    {
+    	$post = DB::table('posts')->where('id',$id)->first();
+    	$postDel = DB::table('posts')->where('id','=',$id)->delete();
+    	if($postDel){
+    		unlink($post->image);
+    		$sms = array(
+    			'message' => 'Successfully post deleted',
+    			'alert-type' => 'success'
+    		);
+    		return Redirect('allPost')->with($sms);
+    	}else{
+    		$sms = array(
+    			'message' => 'Something went wrong',
+    			'alert-type' => 'error'
+    		);
+    		return Redirect('allPost')->with($sms);
+    	}
+    }
 }

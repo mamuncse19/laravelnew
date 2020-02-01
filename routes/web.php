@@ -55,3 +55,7 @@ Route::get('/viewPost/{id}','PostController@viewPost');
 Route::get('/editPost/{id}','PostController@editPost');
 Route::post('/postUpdate/{id}','PostController@updatePost');
 
+// delete post
+
+Route::get('deletePost/{id}','PostController@deletePost');
+

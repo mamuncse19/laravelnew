@@ -27,7 +27,7 @@
             <td>
               <a href="{{ URL::to('viewPost/'.$row->id) }}" class="btn btn-success">View</a>
               <a href="{{ url('editPost/'.$row->id) }}" class="btn btn-info">Edit</a>
-              <a href="{{ url('/deleteCategory/'.$row->id) }}" id="deleteId" class="btn btn-danger">Delete</a>
+              <a href="{{ url('/deletePost/'.$row->id) }}" id="deleteId" class="btn btn-danger">Delete</a>
             </td>
           </tr>
           
