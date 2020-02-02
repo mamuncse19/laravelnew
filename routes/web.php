@@ -22,7 +22,7 @@ Route::get('/student','TestController@student');
 
 Route::get('post','PostController@post');
 
-Route::get('student','studentController@student')->name('student');
+
 
 /*
 ------------------------------------------
@@ -77,4 +77,13 @@ End Query Builder
 Using Eloquent ORM
 ------------------------------------------
 */
+//student insert
+
+Route::get('student','studentController@student')->name('student');
+Route::post('addStudent','studentController@studentInsert')->name('studentInsert');
+
+// student retrieve
+
+Route::get('/all.student','studentController@viewStudent');
+
 
