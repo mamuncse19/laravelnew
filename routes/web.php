@@ -22,6 +22,14 @@ Route::get('/student','TestController@student');
 
 Route::get('post','PostController@post');
 
+Route::get('student','studentController@student')->name('student');
+
+/*
+------------------------------------------
+Using Query Builder
+------------------------------------------
+*/
+
 //category insert====
 
 Route::get('/addCategory','categoryController@addCategory')->name('AddCategory');
@@ -57,4 +65,16 @@ Route::post('/postUpdate/{id}','PostController@updatePost');
 // delete post
 
 Route::get('deletePost/{id}','PostController@deletePost');
+/*
+------------------------------------------
+End Query Builder
+------------------------------------------
+*/
+
+/*
+
+------------------------------------------
+Using Eloquent ORM
+------------------------------------------
+*/
 
