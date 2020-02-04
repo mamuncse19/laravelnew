@@ -22,9 +22,9 @@
  				<td>{{$row->name}}</td>
  				<td>{{$row->email}}</td>
  				<td>{{$row->phone}}</td>
- 				<td><a href="" class="btn btn-success">View</a>
- 				<a href="" class="btn btn-info">Edit</a>
- 				<a href="" class="btn btn-danger">Delete</a></td>
+ 				<td><a href="{{URL::to('view/student/'.$row->id)}}" class="btn btn-success">View</a>
+ 				<a href="{{url('editStudent/'.$row->id)}}" class="btn btn-info">Edit</a>
+ 				<a href="{{url('deleteStudent/'.$row->id)}}" class="btn btn-danger">Delete</a></td>
  			</tr>
  			@endforeach
         </table>

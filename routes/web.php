@@ -84,6 +84,17 @@ Route::post('addStudent','studentController@studentInsert')->name('studentInsert
 
 // student retrieve
 
-Route::get('/all.student','studentController@viewStudent');
+Route::get('/all.student','studentController@allStudent');
+
+Route::get('view/student/{id}','studentController@viewStudent');
+
+//delete student
+
+Route::get('deleteStudent/{id}','studentController@delStudent');
+
+//edit and update
+
+Route::get('editStudent/{id}','studentController@editStudent');
+Route::post('updateStudent/{id}','studentController@updateStudent');
 
 
